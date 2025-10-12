@@ -55,18 +55,25 @@ class PatternValidator : public Validator {
 
         // D = Digito decimal
         if (patternChar == 'D')
+        {
             return textChar >= '0' && textChar <= '9';
+        }
 
         // A = Letra (mayuscula o minuscula)
         if (patternChar == 'A')
+        {
             return (textChar >= 'A' && textChar <= 'Z') || (textChar >= 'a' && textChar <= 'z');
+        }
 
         // ? = Cualquier caracter
         if (patternChar == '?')
+        {
             return true;
+        }
 
         // letra minuscula -> Coincide sin importar mayusculas (se suma a su valor ASCII 32 y después se compara)
-        if (patternChar >= 'a' && patternChar <= 'z') {
+        if (patternChar >= 'a' && patternChar <= 'z') 
+        {
             char lowerText = (textChar >= 'A' && textChar <= 'Z') ? (textChar + 32) : textChar;
             return lowerText == patternChar;
         }
