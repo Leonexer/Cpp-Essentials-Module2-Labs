@@ -177,7 +177,7 @@ int main() {
         std::cout << "Enter password to validate: ";
         std::getline(std::cin, password);
 
-        // Validate
+        // Validar
         if (validator->isValid(password))
         {
             std::cout << "Password is valid" << std::endl;
