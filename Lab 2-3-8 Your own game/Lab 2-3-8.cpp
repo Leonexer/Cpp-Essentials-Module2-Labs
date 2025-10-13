@@ -8,7 +8,7 @@ private:
     char grid[3][3];
 
 public:
-    Board() 
+    Board()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -22,15 +22,15 @@ public:
 
     void print() {
         std::cout << "\n";
-        for (int i = 0; i < 3; i++) 
+        for (int i = 0; i < 3; i++)
         {
             std::cout << " ";
-            for (int j = 0; j < 3; j++) 
+            for (int j = 0; j < 3; j++)
             {
-                if (grid[i][j] == ' ')                 // Si está vacío, muestra el número de la casilla
+                if (grid[i][j] == ' ')                 // Si esta vacio, muestra el numero de la casilla
                     std::cout << ((3 * i) + j + 1);
                 else
-                    std::cout << grid[i][j];            //Sino muestra el símbolo almacenado
+                    std::cout << grid[i][j];            //Sino muestra el simbolo almacenado
 
                 if (j < 2) std::cout << " | ";          //Separaciones verticales
             }
@@ -45,23 +45,23 @@ public:
         std::cout << "\n";
     }
 
-    bool placeMark(int row, int col, char symbol) 
+    bool placeMark(int row, int col, char symbol)
     {
         if (row < 0 || row > 2 || col < 0 || col > 2) //Limites de input
         {
-            return false; 
+            return false;
         }
 
         if (grid[row][col] != ' ') // No se puede sobreescribir una marca (ni siquiera del mismo jugador)
         {
-            return false; 
+            return false;
         }
 
         grid[row][col] = symbol;
         return true;
     }
 
-    bool isFull() 
+    bool isFull()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -76,12 +76,12 @@ public:
         return true;
     }
 
-    bool checkWin(char symbol) 
+    bool checkWin(char symbol)
     {
         // Filas y columnas
         for (int i = 0; i < 3; i++)
         {
-            if (grid[i][0] == symbol && grid[i][1] == symbol && grid[i][2] == symbol) 
+            if (grid[i][0] == symbol && grid[i][1] == symbol && grid[i][2] == symbol)
             {
                 return true;
             }
@@ -130,28 +130,28 @@ private:
     Player* currentPlayer;
 
 public:
-    Game(std::string name1, std::string name2) : player1(name1, 'X'), player2(name2, 'O') 
+    Game(std::string name1, std::string name2) : player1(name1, 'X'), player2(name2, 'O')
     {
         currentPlayer = &player1;
     }
 
-    void switchTurn() 
+    void switchTurn()
     {
-        if (currentPlayer == &player1) 
+        if (currentPlayer == &player1)
         {
             currentPlayer = &player2;
         }
-        else 
+        else
         {
             currentPlayer = &player1;
         }
     }
 
-    void play() 
+    void play()
     {
         int move;
 
-        while (true) 
+        while (true)
         {
             board.print();
             std::cout << currentPlayer->getName() << " (" << currentPlayer->getSymbol() << "), elige una casilla (1-9): ";
@@ -160,20 +160,20 @@ public:
             int row = (move - 1) / 3;       //Convierte el movimiento a coordenadas del tablero
             int col = (move - 1) % 3;
 
-            if (!board.placeMark(row, col, currentPlayer->getSymbol())) 
+            if (!board.placeMark(row, col, currentPlayer->getSymbol()))
             {
-                std::cout << "Movimiento inválido. Intenta de nuevo." << std::endl;
+                std::cout << "Movimiento invalido. Intenta de nuevo." << std::endl;
                 continue;
             }
 
-            if (board.checkWin(currentPlayer->getSymbol())) 
+            if (board.checkWin(currentPlayer->getSymbol()))
             {
                 board.print();
-                std::cout << "¡" << currentPlayer->getName() << " ha ganado!" << std::endl;
+                std::cout << currentPlayer->getName() << " ha ganado!" << std::endl;
                 break;
             }
 
-            if (board.isFull()) 
+            if (board.isFull())
             {
                 board.print();
                 std::cout << "Empate." << std::endl;
@@ -185,7 +185,7 @@ public:
     }
 };
 
-// -------------------- Función principal --------------------
+// -------------------- Funcion principal --------------------
 int main() {
     std::string n1, n2;
 
