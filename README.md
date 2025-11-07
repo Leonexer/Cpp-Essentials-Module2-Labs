@@ -98,6 +98,26 @@ int main() {
 }
 
 ```
+### Demostración de output
+
+```
+Enter IP address 1:
+192.168.1.1
+Enter IP address 2:
+256.0.0.1
+Enter IP address 3:
+10.0.0.5
+
+--- Results ---
+IP Address: 192.168.1.1
+
+IP Address: 256.0.0.1
+Status: Not Correct
+
+IP Address: 10.0.0.5
+Status: Correct
+
+```
 
 ### Conclusión
 El conjunto de laboratorios sobre **polimorfismo en C++** de Cisco nos enseña cómo las clases pueden compartir una misma interfaz pero comportarse de manera distinta según sus necesidades específicas. Este principio se refleja de forma clara en el código proporcionado, donde una clase base (`IPAddress`) define una estructura común y un método virtual, mientras que la clase derivada (`IPAddressChecked`) amplía su funcionalidad para validar direcciones IP y mostrar su estado, de esta forma, el código nos muestra cómo el polimorfismo permite reutilizar y extender comportamientos **sin modificar la lógica original** (subrayo lo último porque es literalmente TODA la razón de usar polimorfismo) , un concepto clave en la programación orientada a objetos que también se aplica en los ejercicios anteriores (árboles y piezas de damas) para unificar acciones diversas bajo una misma interfaz.
@@ -274,6 +294,12 @@ int main() {
     delete validator;
     return 0;
 }
+```
+
+### Demostración de output
+```
+Enter password to validate: Hola123!
+Password is valid
 ```
 
 ### Conclusión
@@ -465,6 +491,27 @@ El programa está estructurado en tres clases principales:
 
 La interacción entre estas clases está diseñada para demostrar cómo la programación orientada a objetos nos puede permitir el **dividir responsabilidades en nuestro código**, mantener **claridad en el código** y más importantemente **reutilizar componentes**. Además, se aplican los principios aprendidos en los laboratorios anteriores (Polimorfismo, métodos virtuales, etc.)
 
+### Demostración de Output
+
+```
+=== Tic Tac Toe ===
+Nombre del jugador 1 (X): Alan
+Nombre del jugador 2 (O): Sara
+
+ 1 | 2 | 3
+---+---+---
+ 4 | 5 | 6
+---+---+---
+ 7 | 8 | 9
+
+Alan (X), elige una casilla (1-9): 5
+Sara (O), elige una casilla (1-9): 1
+Alan (X), elige una casilla (1-9): 9
+Sara (O), elige una casilla (1-9): 3
+Alan (X), elige una casilla (1-9): 7
+Alan ha ganado!
+```
+
 ## Laboratorio 2.4.3–2.4.4: Composition – Parte 1 y 2
 
 ### Objetivo general
@@ -598,6 +645,29 @@ int main() {
     return 0;
 }
 ```
+
+### Demostración de Output
+
+```
+Engine: 1.0
+Wheel: 16inches
+Wheel: 16inches
+Wheel: 16inches
+Wheel: 16inches
+Chassis: Normal
+Light: Type 1
+Light: Type 1
+Light: Type 2
+Light: Type 2
+Light: Type 3
+Light: Type 3
+Light: Type 4
+Light: Type 4
+Light: Type 5
+Light: Type 5
+Body: Black
+```
+
 
 ### Conclusión
 
